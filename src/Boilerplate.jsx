@@ -18,12 +18,10 @@ export default class Boilerplate extends Component {
 		};
 
 		this.hideInstructions = this.hideInstructions.bind(this);
-		this.increaseCount = this.increaseCount.bind(this);
-		this.decreaseCount = this.decreaseCount.bind(this);
-		this.randomlySetCount = this.randomlySetCount.bind(this);
-		this.saveCount = this.saveCount.bind(this);
 		this.switchToEuro = this.switchToEuro.bind(this);
 		this.switchToUS = this.switchToUS.bind(this);
+		this.switchToUS = this.switchToAus.bind(this);
+		this.switchToUS = this.switchToCanada.bind(this);
 	}
 
 	componentDidMount() {
@@ -38,61 +36,74 @@ export default class Boilerplate extends Component {
 		ipcRenderer.removeAllListeners('instructions');
 	}
 
-	fetchCount() {
-		const site = this.props.sites[this.props.match.params.siteID],
-		return site.count ?? 0;
-	}
-
 	hideInstructions() {
 		this.setState({
 			showInstructions: false,
 		});
 	}
 
-	saveCount() {
-		ipcRenderer.send(
-			'save-count',
-			this.state.siteId,
-			this.state.count,
-		);
-	}
 	switchToEuro() {
 		ipcRenderer.send(
-			'switch-to-euro',
+			'switch-country',
 			this.state.siteId,
+			'Brederopad 77',
+			'Delft',
+			'NL',
+			'2624 XR',
+			'EUR',
+			' ',
+			',',
+			'kg',
+			'cm',
+		);
+	}
+	
+	switchToAus() {
+		ipcRenderer.send(
+			'switch-country',
+			this.state.siteId,
+			'28 Kaesler Road',
+			'Mount Burr',
+			'AU:SA',
+			'5279',
+			'AUD',
+			' ',
+			',',
+			'kg',
+			'cm',
+		);
+	}	
+	
+	switchToCanada() {
+		ipcRenderer.send(
+			'switch-country',
+			this.state.siteId,
+			'40 Bay St',
+			'Toronto',
+			'CA:ON',
+			'M5J 2X2',
+			'CAD',
+			' ',
+			',',
+			'kg',
+			'cm',
 		);
 	}	
 	
 	switchToUS() {
 		ipcRenderer.send(
-			'switch-to-us',
+			'switch-country',
 			this.state.siteId,
+			'537 Paper Street',
+			'Wilmington',
+			'US:DE',
+			'19806',
+			'USD',
+			',',
+			'.',
+			'lbs',
+			'in',
 		);
-	}
-
-	increaseCount() {
-		const oldCount = this.state.count;
-		this.setState({
-			count: oldCount + 1,
-		});
-	}
-
-	decreaseCount() {
-		const oldCount = this.state.count;
-		this.setState({
-			count: oldCount - 1,
-		});
-	}
-
-	async randomlySetCount() {
-		const newCount = await LocalRenderer.ipcAsync('get-random-count');
-		this.setState({
-			count: newCount,
-		});
-	}
-
-	renderCount() {
-		return <p>Count: {this.state.count}</p>;
 	}
 
 	renderInstructions() {
@@ -109,11 +120,7 @@ export default class Boilerplate extends Component {
 							fontWeight: 'medium',
 						}}
 					>
-						You just saved the count for this site! You can exit this add-on and return to find the count will remain the same (but only if you save!).
-						This is a boilerplate add-on to help you get started with development.
-						You will find a few examples in this add-on related to using Local Components, the Local add-on API, and other useful tools for making your add-on awesome!
-						Visit <a href='https://localwp.com/get-involved'>the Local webpage about add-ons</a> for more information about making an add-on for Local.
-						We can't wait to see what you create!
+						Site locale settings updated
 					</Text>
 				</div>
 			</FlyModal>
@@ -127,8 +134,8 @@ export default class Boilerplate extends Component {
 				<div>
 					<Button onClick={this.switchToUS}>Switch Site to US</Button>
 					<Button onClick={this.switchToEuro}>Switch Site to Europe</Button>
-					<Button>Switch Site to Australia</Button>
-					<Button>Switch Site to Canada</Button>
+					<Button onClick={this.switchToAus}>Switch Site to Australia</Button>
+					<Button onClick={this.switchToCanada}>Switch Site to Canada</Button>
 				</div>
             </div>
         )
