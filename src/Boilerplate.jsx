@@ -22,10 +22,12 @@ export default class Boilerplate extends Component {
 		this.decreaseCount = this.decreaseCount.bind(this);
 		this.randomlySetCount = this.randomlySetCount.bind(this);
 		this.saveCount = this.saveCount.bind(this);
+		this.switchToEuro = this.switchToEuro.bind(this);
+		this.switchToUS = this.switchToUS.bind(this);
 	}
 
 	componentDidMount() {
-		ipcRenderer.once('instructions', (event) => {
+		ipcRenderer.on('instructions', (event) => {
 			this.setState({
 				showInstructions: true,
 			});
@@ -52,6 +54,19 @@ export default class Boilerplate extends Component {
 			'save-count',
 			this.state.siteId,
 			this.state.count,
+		);
+	}
+	switchToEuro() {
+		ipcRenderer.send(
+			'switch-to-euro',
+			this.state.siteId,
+		);
+	}	
+	
+	switchToUS() {
+		ipcRenderer.send(
+			'switch-to-us',
+			this.state.siteId,
 		);
 	}
 
@@ -108,14 +123,12 @@ export default class Boilerplate extends Component {
     render() {
         return (
             <div style={{ flex: '1', overflowY: 'auto', margin: '10px' }}>
-                <h2>Hello, World!</h2>
 				{this.renderInstructions()}
-				{this.renderCount()}
 				<div>
-					<Button onClick={this.decreaseCount}>Decrement Count</Button> &nbsp;
-					<Button onClick={this.increaseCount}>Increment Count</Button> &nbsp;
-					<Button onClick={this.randomlySetCount}>Randomize Count</Button> &nbsp;
-					<Button onClick={this.saveCount}>Save Count</Button>
+					<Button onClick={this.switchToUS}>Switch Site to US</Button>
+					<Button onClick={this.switchToEuro}>Switch Site to Europe</Button>
+					<Button>Switch Site to Australia</Button>
+					<Button>Switch Site to Canada</Button>
 				</div>
             </div>
         )
