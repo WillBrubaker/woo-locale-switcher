@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ipcRenderer } from 'electron';
+import ReactTooltip from "react-tooltip";
 
 // https://getflywheel.github.io/local-addon-api/modules/_local_renderer_.html
 import * as LocalRenderer from '@getflywheel/local/renderer';
@@ -14,6 +15,7 @@ export default class Boilerplate extends Component {
 		this.state = {
 			siteId: props.match.params.siteID,
 			showInstructions: false,
+			localeSwitchedTo: '',
 		};
 
 		this.hideInstructions = this.hideInstructions.bind(this);
@@ -42,6 +44,7 @@ export default class Boilerplate extends Component {
 	}
 
 	switchToEuro() {
+		this.localeSwitchedTo = 'Europe';
 		ipcRenderer.send(
 			'switch-country',
 			this.state.siteId,
@@ -59,6 +62,7 @@ export default class Boilerplate extends Component {
 	}
 	
 	switchToAus() {
+		this.localeSwitchedTo = 'Australia';
 		ipcRenderer.send(
 			'switch-country',
 			this.state.siteId,
@@ -76,6 +80,7 @@ export default class Boilerplate extends Component {
 	}	
 	
 	switchToCanada() {
+		this.localeSwitchedTo = 'Canada';
 		ipcRenderer.send(
 			'switch-country',
 			this.state.siteId,
@@ -93,6 +98,7 @@ export default class Boilerplate extends Component {
 	}	
 	
 	switchToUS() {
+		this.localeSwitchedTo = 'United States';
 		ipcRenderer.send(
 			'switch-country',
 			this.state.siteId,
@@ -123,7 +129,7 @@ export default class Boilerplate extends Component {
 							fontWeight: 'medium',
 						}}
 					>
-						Site locale switcheroo happened without incident!
+						Site locale switcheroo to {this.localeSwitchedTo} happened without incident!
 					</Text>
 				</div>
 			</FlyModal>
@@ -135,7 +141,10 @@ export default class Boilerplate extends Component {
             <div style={{ flex: '1', overflowY: 'auto', margin: '10px' }}>
 				{this.renderInstructions()}
 				<div>
-					<Button onClick={this.switchToUS}>Switch Site to US</Button>
+					<Button data-tip data-for="UStip" onClick={this.switchToUS}>Switch Site to US</Button>
+					<ReactTooltip id="UStip" place="top" effect="solid">
+						Switch shop base address, currency, and weight units to U.S. centric.
+					</ReactTooltip>
 					<Button onClick={this.switchToEuro}>Switch Site to Europe</Button>
 					<Button onClick={this.switchToAus}>Switch Site to Australia</Button>
 					<Button onClick={this.switchToCanada}>Switch Site to Canada</Button>
