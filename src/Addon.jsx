@@ -13,15 +13,14 @@ export default class Boilerplate extends Component {
 
 		this.state = {
 			siteId: props.match.params.siteID,
-			count: this.fetchCount(),
 			showInstructions: false,
 		};
 
 		this.hideInstructions = this.hideInstructions.bind(this);
 		this.switchToEuro = this.switchToEuro.bind(this);
 		this.switchToUS = this.switchToUS.bind(this);
-		this.switchToUS = this.switchToAus.bind(this);
-		this.switchToUS = this.switchToCanada.bind(this);
+		this.switchToAus = this.switchToAus.bind(this);
+		this.switchToCanada = this.switchToCanada.bind(this);
 	}
 
 	componentDidMount() {
@@ -47,6 +46,7 @@ export default class Boilerplate extends Component {
 			'switch-country',
 			this.state.siteId,
 			'Brederopad 77',
+			'',
 			'Delft',
 			'NL',
 			'2624 XR',
@@ -63,6 +63,7 @@ export default class Boilerplate extends Component {
 			'switch-country',
 			this.state.siteId,
 			'28 Kaesler Road',
+			'',
 			'Mount Burr',
 			'AU:SA',
 			'5279',
@@ -79,6 +80,7 @@ export default class Boilerplate extends Component {
 			'switch-country',
 			this.state.siteId,
 			'40 Bay St',
+			'',
 			'Toronto',
 			'CA:ON',
 			'M5J 2X2',
@@ -95,6 +97,7 @@ export default class Boilerplate extends Component {
 			'switch-country',
 			this.state.siteId,
 			'537 Paper Street',
+			'#34',
 			'Wilmington',
 			'US:DE',
 			'19806',
@@ -112,7 +115,7 @@ export default class Boilerplate extends Component {
 				isOpen={this.state.showInstructions}
 				onRequestClose={this.hideInstructions}
 			>
-				<Title fontSize='xl'>Boilerplate Add-on</Title>
+				<Title fontSize='xl'>Great Success!</Title>
 				<div style={{padding: '20px'}}>
 					<Text
 						fontSize='l'
@@ -120,7 +123,7 @@ export default class Boilerplate extends Component {
 							fontWeight: 'medium',
 						}}
 					>
-						Site locale settings updated
+						Site locale switcheroo happened without incident!
 					</Text>
 				</div>
 			</FlyModal>
