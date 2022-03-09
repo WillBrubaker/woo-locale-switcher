@@ -1,7 +1,7 @@
 {
     "name": "woo-locale-switcher",
     "productName": "Woo Locale Switcher",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "Hiro",
     "keywords": [
         "local-addon"
@@ -54,7 +54,8 @@
         "prop-types": "^15.6.2",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
-        "react-router-dom": "^5.2.0"
+        "react-router-dom": "^5.2.0",
+        "react-tooltip": "^4.2.21"
     },
     "bundledDependencies": [
         "@getflywheel/local-components",
@@ -67,7 +68,8 @@
         "prop-types",
         "react",
         "react-dom",
-        "react-router-dom"
+        "react-router-dom",
+        "react-tooltip"
     ],
     "engines": {
         "local-by-flywheel": "^5.0.0"
