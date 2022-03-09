@@ -4,6 +4,13 @@ This [Local addon](https://localwp.com) provides a one-button press method to sw
 
 ## Installation
 
+### Pre built
+
+Download the .tgz file from the most recent release tag and "Install from disk" on your instance of local.
+
+
+### Build yourself
+
 ### Requirements
 
 * [Local](https://localwp.com/) 5.x ⚡️
@@ -29,4 +36,4 @@ Clone the repository into the following directory depending on your platform:
 
 ## License
 
-MIT
+GPL
