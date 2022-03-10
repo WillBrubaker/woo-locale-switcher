@@ -14,10 +14,10 @@
     "main": "lib/main.js",
     "repository": {
         "type": "git",
-        "url": "https://github.com/"
+        "url": "https://github.com/WillBrubaker/woo-locale-switcher"
     },
     "bugs": {
-        "url": "https://github.com/"
+        "url": "https://github.com/WillBrubaker/woo-locale-switcher/issues"
     },
     "license": "GPL",
     "scripts": {
@@ -54,8 +54,7 @@
         "prop-types": "^15.6.2",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
-        "react-router-dom": "^5.2.0",
-        "react-tooltip": "^4.2.21"
+        "react-router-dom": "^5.2.0"
     },
     "bundledDependencies": [
         "@getflywheel/local-components",
@@ -68,8 +67,7 @@
         "prop-types",
         "react",
         "react-dom",
-        "react-router-dom",
-        "react-tooltip"
+        "react-router-dom"
     ],
     "engines": {
         "local-by-flywheel": "^5.0.0"
