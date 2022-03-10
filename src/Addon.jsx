@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { ipcRenderer } from 'electron';
-import ReactTooltip from "react-tooltip";
 
 // https://getflywheel.github.io/local-addon-api/modules/_local_renderer_.html
 import * as LocalRenderer from '@getflywheel/local/renderer';
 
 // https://github.com/getflywheel/local-components
-import { Button, FlyModal, Title, Text } from '@getflywheel/local-components';
+import { Button, FlyModal, Title, Text, Tooltip } from '@getflywheel/local-components';
 
 export default class Boilerplate extends Component {
 	constructor(props) {
@@ -141,13 +140,12 @@ export default class Boilerplate extends Component {
             <div style={{ flex: '1', overflowY: 'auto', margin: '10px' }}>
 				{this.renderInstructions()}
 				<div>
-					<Button data-tip data-for="UStip" onClick={this.switchToUS}>Switch Site to US</Button>
-					<ReactTooltip id="UStip" place="top" effect="solid">
-						Switch shop base address, currency, and weight units to U.S. centric.
-					</ReactTooltip>
+					<Tooltip content={<div>Switch shop base address, currency, and weight units to U.S. centric.</div>} showDelay={0}>
+						<Button onClick={this.switchToUS}>Switch Site to US</Button>
+					</Tooltip>
 					<Button onClick={this.switchToEuro}>Switch Site to Europe</Button>
 					<Button onClick={this.switchToAus}>Switch Site to Australia</Button>
-					<Button onClick={this.switchToCanada}>Switch Site to Canada</Button>
+					<Button onClick={this.switchToCanada}>Switch Site to Janada</Button>
 				</div>
             </div>
         )
