@@ -13,17 +13,24 @@ export default function (context) {
 	ipcMain.on('switch-country', async (event, siteId, options) => {
 		// Get site object.
 		const site = LocalMain.getServiceContainer().cradle.siteData.getSite(siteId);
+		var error = false;
 		for (var option in options) {
 			await LocalMain.getServiceContainer().cradle.wpCli.run(site, [
 				'option',
 				'set',
 				option,
 				options[option],
-			]).then(function () { }, function (err) { LocalMain.getServiceContainer().cradle.localLogger.log('info', err); });
+			]).then(function () { }, function (err) {
+				LocalMain.sendIPCEvent('error');
+				LocalMain.getServiceContainer().cradle.localLogger.log('info', err);
+				error = true;
+			});
 		}
 
-
-		LocalMain.getServiceContainer().cradle.localLogger.log('info', 'Switcheroo completed without errors');
-		LocalMain.sendIPCEvent('instructions');
+		if ( !error ) {
+			LocalMain.getServiceContainer().cradle.localLogger.log('info', 'Switcheroo completed without errors');
+			LocalMain.sendIPCEvent('instructions');
+		}
+		
 	});
 }
