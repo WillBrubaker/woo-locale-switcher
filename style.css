@@ -1,3 +1,12 @@
-button, .woo {
+.woo.button {
     background-color: #96588a;
+    color: #3c3c3c;
+    border-color: #3c3c3c;
+    float: left;
+    margin: 1em;
+}
+
+li { 
+    width: 100%;
+    float: left;
 }

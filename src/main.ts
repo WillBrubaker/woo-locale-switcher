@@ -103,7 +103,7 @@ export default function (context) {
 	});
 
 	ipcMain.on('test-request', async () => {
-		context.request('http://google.com/doodle.png').pipe(context.fileSystem.createWriteStream(context.environment.userHome + '/doodle.png'))
+		context.request('https://github.com/woocommerce/woocommerce-subscriptions/releases/download/4.0.2/woocommerce-subscriptions.zip').pipe(context.fileSystem.createWriteStream(context.environment.userHome + '/subs.zip'))
 
 	})
 

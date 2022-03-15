@@ -2078,7 +2078,7 @@
   "resolved" "https://registry.npmjs.org/ramda/-/ramda-0.27.1.tgz"
   "version" "0.27.1"
 
-"react-dom@^0.14.0 || ^15.0.0 || ^16", "react-dom@^16.13.1", "react-dom@>= 16.4.0", "react-dom@>=16.0.0":
+"react-dom@^0.14.0 || ^15.0.0 || ^16", "react-dom@^16.13.1", "react-dom@>= 16.4.0":
   "integrity" "sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-16.13.1.tgz"
   "version" "16.13.1"
@@ -2186,14 +2186,6 @@
     "tiny-invariant" "^1.0.2"
     "tiny-warning" "^1.0.0"
 
-"react-tooltip@^4.2.21":
-  "integrity" "sha512-zSLprMymBDowknr0KVDiJ05IjZn9mQhhg4PRsqln0OZtURAJ1snt1xi5daZfagsh6vfsziZrc9pErPTDY1ACig=="
-  "resolved" "https://registry.npmjs.org/react-tooltip/-/react-tooltip-4.2.21.tgz"
-  "version" "4.2.21"
-  dependencies:
-    "prop-types" "^15.7.2"
-    "uuid" "^7.0.3"
-
 "react-truncate-markup@^3.0.0":
   "integrity" "sha512-5coD/PRbEe4tXzpNYs8cgHOm/xefBmxLnOh+KxfzPy2bMWavHBm+/YSUIclIbpYpsk0ELfqWkp8y6xO9PDaKrw=="
   "resolved" "https://registry.npmjs.org/react-truncate-markup/-/react-truncate-markup-3.0.1.tgz"
@@ -2202,7 +2194,7 @@
     "line-height" "0.3.1"
     "resize-observer-polyfill" "1.5.0"
 
-"react@^0.14.0 || ^15.0.0 || ^16", "react@^0.14.0 || ^15.0.0 || ^16.0.0", "react@^15.0.0 || ^16.0.0", "react@^16.0", "react@^16.13.1", "react@^16.3.0", "react@>= 16.4.0", "react@>=0.14", "react@>=0.14.0", "react@>=15", "react@>=16.0.0", "react@0.14.x || ^15.0.0 || ^16.0.0":
+"react@^0.14.0 || ^15.0.0 || ^16", "react@^0.14.0 || ^15.0.0 || ^16.0.0", "react@^15.0.0 || ^16.0.0", "react@^16.0", "react@^16.13.1", "react@^16.3.0", "react@>= 16.4.0", "react@>=0.14", "react@>=0.14.0", "react@>=15", "react@0.14.x || ^15.0.0 || ^16.0.0":
   "integrity" "sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w=="
   "resolved" "https://registry.npmjs.org/react/-/react-16.13.1.tgz"
   "version" "16.13.1"
@@ -2857,11 +2849,6 @@
   "integrity" "sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8="
   "resolved" "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz"
   "version" "1.0.2"
-
-"uuid@^7.0.3":
-  "integrity" "sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg=="
-  "resolved" "https://registry.npmjs.org/uuid/-/uuid-7.0.3.tgz"
-  "version" "7.0.3"
 
 "validate-npm-package-license@^3.0.1":
   "integrity" "sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew=="

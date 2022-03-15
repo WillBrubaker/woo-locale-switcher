@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ipcRenderer } from 'electron';
+const { exec } = require('child_process');
 
 // https://getflywheel.github.io/local-addon-api/modules/_local_renderer_.html
 import * as LocalRenderer from '@getflywheel/local/renderer';
@@ -23,6 +24,7 @@ export default class Boilerplate extends Component {
 		this.switchToAus = this.switchToAus.bind(this);
 		this.switchToCanada = this.switchToCanada.bind(this);
 		this.testRequest = this.testRequest.bind(this);
+		this.launchPostman = this.launchPostman.bind(this);
 	}
 
 	componentDidMount() {
@@ -119,6 +121,10 @@ export default class Boilerplate extends Component {
 		ipcRenderer.send('test-request');
 	}
 
+	launchPostman() {
+		exec('open -a Postman');
+	}
+
 	renderInstructions() {
 		return (
 			<FlyModal
@@ -145,13 +151,14 @@ export default class Boilerplate extends Component {
             <div style={{ flex: '1', overflowY: 'auto', margin: '10px' }}>
 				{this.renderInstructions()}
 				<div>
-					<Tooltip content={<div>Switch shop base address, currency, and weight units to U.S. centric.</div>} showDelay={0}>
-						<Button onClick={this.switchToUS}>Switch Site to US</Button>
-					</Tooltip>
-					<Button onClick={this.switchToEuro} className="woo class">Switch Site to Europe</Button>
-					<Button onClick={this.switchToAus} >Switch Site to Australia</Button>
-					<Button onClick={this.switchToCanada} >Switch Site to Janada</Button>
-					<Button onClick={this.testRequest} >Test an HTTP request</Button>
+					<ul style={{ listStyle: 'none' }}>
+					<li><Button onClick={this.switchToUS} className="woo button">Switch Site to US</Button></li>
+					<li><Button onClick={this.switchToEuro} className="woo button">Switch Site to Europe</Button></li>
+					<li><Button onClick={this.switchToAus} className="woo button">Switch Site to Australia</Button></li>
+					<li><Button onClick={this.switchToCanada} className="woo button">Switch Site to Canada</Button></li>
+					<li><Button onClick={this.testRequest} className="woo button">Test an HTTP request</Button></li>
+					<li><Button onClick={this.launchPostman} className="woo button">Launch Postman</Button></li>
+					</ul>
 				</div>
             </div>
         )
