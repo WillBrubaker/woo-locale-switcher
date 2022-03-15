@@ -50,16 +50,18 @@ export default class Boilerplate extends Component {
 		ipcRenderer.send(
 			'switch-country',
 			this.state.siteId,
-			'Brederopad 77',
-			'',
-			'Delft',
-			'NL',
-			'2624 XR',
-			'EUR',
-			' ',
-			',',
-			'kg',
-			'cm',
+			{ 
+				'woocommerce_store_address': 'Brederopad 77',
+				'woocommerce_store_address_2': '',
+				'woocommerce_store_city': 'Delft',
+				'woocommerce_default_country': 'NL',
+				'woocommerce_store_postcode': '2624 XR',
+				'woocommerce_currency': 'EUR',
+				'woocommerce_price_thousand_sep': ' ',
+				'woocommerce_price_decimal_sep' : ',',
+				'woocommerce_weight_unit': 'kg',
+				'woocommerce_dimension_unit': 'cm',
+			}
 		);
 	}
 	
@@ -68,16 +70,18 @@ export default class Boilerplate extends Component {
 		ipcRenderer.send(
 			'switch-country',
 			this.state.siteId,
-			'28 Kaesler Road',
-			'',
-			'Mount Burr',
-			'AU:SA',
-			'5279',
-			'AUD',
-			' ',
-			',',
-			'kg',
-			'cm',
+			{ 
+				'woocommerce_store_address': '28 Kaesler Road',
+				'woocommerce_store_address_2': '',
+				'woocommerce_store_city': 'Mount Burr',
+				'woocommerce_default_country': 'AU:SA',
+				'woocommerce_store_postcode': '5279',
+				'woocommerce_currency': 'AUD',
+				'woocommerce_price_thousand_sep': ' ',
+				'woocommerce_price_decimal_sep' : ',',
+				'woocommerce_weight_unit': 'kg',
+				'woocommerce_dimension_unit': 'cm',
+			}
 		);
 	}	
 	
@@ -86,16 +90,18 @@ export default class Boilerplate extends Component {
 		ipcRenderer.send(
 			'switch-country',
 			this.state.siteId,
-			'40 Bay St',
-			'',
-			'Toronto',
-			'CA:ON',
-			'M5J 2X2',
-			'CAD',
-			' ',
-			',',
-			'kg',
-			'cm',
+			{ 
+				'woocommerce_store_address': '40 Bay St',
+				'woocommerce_store_address_2': '',
+				'woocommerce_store_city': 'Toronto',
+				'woocommerce_default_country': 'CA:ON',
+				'woocommerce_store_postcode': 'M5J 2X2',
+				'woocommerce_currency': 'CAD',
+				'woocommerce_price_thousand_sep': ' ',
+				'woocommerce_price_decimal_sep' : ',',
+				'woocommerce_weight_unit': 'kg',
+				'woocommerce_dimension_unit': 'cm',
+			}
 		);
 	}	
 	
@@ -104,16 +110,18 @@ export default class Boilerplate extends Component {
 		ipcRenderer.send(
 			'switch-country',
 			this.state.siteId,
-			'537 Paper Street',
-			'#34',
-			'Wilmington',
-			'US:DE',
-			'19806',
-			'USD',
-			',',
-			'.',
-			'lbs',
-			'in',
+			{ 
+				'woocommerce_store_address': '537 Paper Street',
+				'woocommerce_store_address_2': '#34',
+				'woocommerce_store_city': 'Wilmington',
+				'woocommerce_default_country': 'US:DE',
+				'woocommerce_store_postcode': '19806',
+				'woocommerce_currency': 'USD',
+				'woocommerce_price_thousand_sep': ',',
+				'woocommerce_price_decimal_sep' : '.',
+				'woocommerce_weight_unit': 'lbs',
+				'woocommerce_dimension_unit': 'in',
+			}
 		);
 	}
 
