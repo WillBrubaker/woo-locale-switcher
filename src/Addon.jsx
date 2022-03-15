@@ -11,7 +11,7 @@ import {
 	FlyModal,
 	Title,
 	Text,
-	Tooltip,
+	Spinner,
 } from "@getflywheel/local-components";
 
 export default class Boilerplate extends Component {
@@ -23,10 +23,12 @@ export default class Boilerplate extends Component {
 			showInstructions: false,
 			showError: false,
 			localeSwitchedTo: "",
+			showSpinner: false,
 		};
 
 		this.hideInstructions = this.hideInstructions.bind(this);
 		this.hideError = this.hideError.bind(this);
+		this.showSpinner = this.showSpinner.bind(this);
 		this.testRequest = this.testRequest.bind(this);
 		this.launchPostman = this.launchPostman.bind(this);
 	}
@@ -36,11 +38,17 @@ export default class Boilerplate extends Component {
 			this.setState({
 				showInstructions: true,
 			});
+			this.setState({
+				showSpinner: false,
+			});
 		});
 
 		ipcRenderer.on("error", (event) => {
 			this.setState({
 				showError: true,
+			});
+			this.setState({
+				showSpinner: false,
 			});
 		});
 	}
@@ -62,6 +70,9 @@ export default class Boilerplate extends Component {
 	}
 
 	switchCountry(newLocale, optionsToSet) {
+		this.setState({
+			showSpinner: true,
+		});
 		ipcRenderer.send("switch-country", this.state.siteId, optionsToSet);
 		this.localeSwitchedTo = newLocale;
 	}
@@ -117,7 +128,22 @@ export default class Boilerplate extends Component {
 		);
 	}
 
+	showSpinner() {
+		return this.state.showSpinner;
+	}
+
+	renderSpinner() {
+		if ( this.state.showSpinner ) {
+			return <Spinner />
+		} else {
+			return null;
+		}
+		
+	}
+
 	render() {
+		console.info(this.state.showInstructions);
+		console.info("boner boner boner");
 		return (
 			<div style={{ flex: "1", overflowY: "auto", margin: "10px" }}>
 				{this.renderInstructions()}
@@ -145,6 +171,7 @@ export default class Boilerplate extends Component {
 								className="woo button"
 							>
 								Switch Site to United States
+								{this.renderSpinner()}
 							</Button>
 						</li>
 						<li>
@@ -168,6 +195,7 @@ export default class Boilerplate extends Component {
 								className="woo button"
 							>
 								Switch Site to Europe
+								{this.renderSpinner()}
 							</Button>
 						</li>
 						<li>
@@ -192,6 +220,7 @@ export default class Boilerplate extends Component {
 								className="woo button"
 							>
 								Switch Site to Australia
+								{this.renderSpinner()}
 							</Button>
 						</li>
 						<li>
@@ -215,6 +244,7 @@ export default class Boilerplate extends Component {
 								className="woo button"
 							>
 								Switch Site to Canada
+								{this.renderSpinner()}
 							</Button>
 						</li>
 						<li>
