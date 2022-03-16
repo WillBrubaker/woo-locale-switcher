@@ -6,7 +6,7 @@
     margin: 1em;
 }
 
-li { 
+ul.woo li { 
     width: 100%;
     float: left;
 }

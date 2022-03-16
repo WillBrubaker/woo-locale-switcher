@@ -4,12 +4,6 @@ import * as LocalMain from '@getflywheel/local/main';
 export default function (context) {
 	const { electron } = context;
 	const { ipcMain } = electron;
-
-	ipcMain.on('test-request', async () => {
-		context.request('https://github.com/woocommerce/woocommerce-subscriptions/releases/download/4.0.2/woocommerce-subscriptions.zip').pipe(context.fileSystem.createWriteStream(context.environment.userHome + '/subs.zip'))
-
-	});
-
 	ipcMain.on('switch-country', async (event, siteId, options) => {
 		// Get site object.
 		const site = LocalMain.getServiceContainer().cradle.siteData.getSite(siteId);
@@ -27,10 +21,10 @@ export default function (context) {
 			});
 		}
 
-		if ( !error ) {
-			LocalMain.getServiceContainer().cradle.localLogger.log('info', 'Switcheroo completed without errors');
+		if (!error) {
+			LocalMain.getServiceContainer().cradle.localLogger.log('info', 'Switcheroo completed without errors!');
 			LocalMain.sendIPCEvent('instructions');
 		}
-		
+
 	});
 }

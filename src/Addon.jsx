@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { ipcRenderer } from "electron";
-const { exec } = require("child_process");
 
 // https://getflywheel.github.io/local-addon-api/modules/_local_renderer_.html
 import * as LocalRenderer from "@getflywheel/local/renderer";
@@ -29,8 +28,6 @@ export default class Boilerplate extends Component {
 		this.hideInstructions = this.hideInstructions.bind(this);
 		this.hideError = this.hideError.bind(this);
 		this.showSpinner = this.showSpinner.bind(this);
-		this.testRequest = this.testRequest.bind(this);
-		this.launchPostman = this.launchPostman.bind(this);
 	}
 
 	componentDidMount() {
@@ -75,14 +72,6 @@ export default class Boilerplate extends Component {
 		});
 		ipcRenderer.send("switch-country", this.state.siteId, optionsToSet);
 		this.localeSwitchedTo = newLocale;
-	}
-
-	testRequest() {
-		ipcRenderer.send("test-request");
-	}
-
-	launchPostman() {
-		exec("open -a Postman");
 	}
 
 	renderInstructions() {
@@ -133,24 +122,21 @@ export default class Boilerplate extends Component {
 	}
 
 	renderSpinner() {
-		if ( this.state.showSpinner ) {
-			return <Spinner />
+		if (this.state.showSpinner) {
+			return <Spinner />;
 		} else {
 			return null;
 		}
-		
 	}
 
 	render() {
-		console.info(this.state.showInstructions);
-		console.info("boner boner boner");
 		return (
 			<div style={{ flex: "1", overflowY: "auto", margin: "10px" }}>
 				{this.renderInstructions()}
 				{this.renderError()}
 				<div>
-					<ul style={{ listStyle: "none" }}>
-						<li>
+					<ul style={{ listStyle: "none" }} class="woo">
+					<li>
 							<Button
 								onClick={this.switchCountry.bind(
 									this,
@@ -245,22 +231,6 @@ export default class Boilerplate extends Component {
 							>
 								Switch Site to Canada
 								{this.renderSpinner()}
-							</Button>
-						</li>
-						<li>
-							<Button
-								onClick={this.testRequest}
-								className="woo button"
-							>
-								Test an HTTP request
-							</Button>
-						</li>
-						<li>
-							<Button
-								onClick={this.launchPostman}
-								className="woo button"
-							>
-								Launch Postman
 							</Button>
 						</li>
 					</ul>
